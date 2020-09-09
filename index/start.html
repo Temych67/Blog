@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body {font-family: sans-serif;}
+#myModal {
+    width: 298px; height: 218px;
+  margin: 0 auto;
+  padding: 18px 9px;
+    border-radius: 4px;
+    background: #fafafa;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+    display: none;
+    opacity: 0;
+    z-index: 38;
+  text-align: center;
+}
+#myModal #myModal__close {
+    width: 21px; height: 21px;
+    position: absolute;
+    top: 1px;   right: 11px;
+    cursor: pointer;
+    display: block;
+  font-size: 29px;
+}
+#myOverlay {
+    z-index: 37;
+    position: fixed;
+    background-color: rgba(0,0,0,.7);
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    cursor :pointer;
+    display :none;
+}
+	</style>
+</head>
+<body>
+	<img src="messenger.png">
+<a class="myLinkModal" href="#">Click me</a>
+
+<div id="myModal">
+  <p>Контент</p>
+  <span id="myModal__close" class="close">ₓ</span>
+</div>
+<div id="myOverlay"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+    $('a.myLinkModal').click( function(event){
+        event.preventDefault();
+        $('#myOverlay').fadeIn(297, function(){
+      $('#myModal') 
+      .css('display', 'block')
+      .animate({opacity: 1}, 198);
+        });
+    });
+
+    $('#myModal__close, #myOverlay').click( function(){
+        $('#myModal').animate({opacity: 0}, 198,
+      function(){
+        $(this).css('display', 'none');
+        $('#myOverlay').fadeOut(297);
+        });
+    });
+});
+</script>
+</body>
+</html>

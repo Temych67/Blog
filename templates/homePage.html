@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Home page{% endblock %}</title>
+  {% load static %}
+  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+</head>
+<body>
+{% include 'snippes/header.html' %}
+{% include 'snippes/base_css.html' %}
+
+<!-- Body -->
+<style type="text/css">
+	.main{
+		min-height: 100vh;
+		height: 100%;
+	}
+</style>
+<div class="main">
+
+			{% block content %}
+
+			{% endblock content %}	
+</div>
+<!-- End Body -->
+	
+</body>
+</html>
